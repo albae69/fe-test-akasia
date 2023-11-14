@@ -1,10 +1,11 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Alert, Text, View} from 'react-native';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 import {RootStackParamList} from '@navigation/types';
 import {formatNumber} from '@utils';
 import {Button} from '@components';
+import useBoundStore from '@store';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Detail'>;
 
@@ -21,8 +22,9 @@ const Item = ({title, description}: {title: string; description: string}) => {
   );
 };
 
-const Detail = ({route}: Props) => {
+const Detail = ({navigation, route}: Props) => {
   const planet = route?.params?.item;
+  const {wishlist, add} = useBoundStore(state => state);
 
   return (
     <View className="flex flex-1 bg-white p-4">
@@ -51,7 +53,21 @@ const Detail = ({route}: Props) => {
       />
       <Item title="Surface Water" description={`${planet.surface_water}%`} />
       <View className="h-10" />
-      <Button title="Add to Wishlist" onPress={() => {}} />
+      {wishlist.filter(item => item.name == planet.name).length > 0 ? (
+        <Text className="font-regular text-center text-black underline">
+          Already on Wishlist
+        </Text>
+      ) : (
+        <Button
+          title="Add to Wishlist"
+          onPress={() => {
+            add(planet);
+            Alert.alert('Message', 'Successfully added planet to wishlist', [
+              {onPress: () => navigation.goBack()},
+            ]);
+          }}
+        />
+      )}
     </View>
   );
 };
