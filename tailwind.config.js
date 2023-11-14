@@ -6,7 +6,19 @@ module.exports = {
     './src/screens/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        thin: 'PlusJakartaSans-Thin',
+        light: 'PlusJakartaSans-Light',
+        italic: 'PlusJakartaSans-Italic',
+        regular: 'PlusJakartaSans-Regular',
+        med: 'PlusJakartaSans-Medium',
+        semibold: 'PlusJakartaSans-SemiBold',
+        bold: 'PlusJakartaSans-Bold',
+        extrabold: 'PlusJakartaSans-ExtraBold',
+        black: 'PlusJakartaSans-Black',
+      },
+    },
   },
   plugins: [],
 };

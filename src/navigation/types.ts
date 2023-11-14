@@ -6,5 +6,5 @@ export type HomeTabParamList = {
 
 export type RootStackParamList = {
   Splash: undefined;
-  Home: undefined;
+  HomeTab: undefined;
 };

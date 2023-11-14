@@ -13,7 +13,7 @@ const Splash = ({navigation}: Props) => {
     (async () => {
       // DO SOMETHING
       await wait(1500);
-      navigation.replace('Home');
+      navigation.replace('HomeTab');
     })();
   }, []);
 

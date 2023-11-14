@@ -49,7 +49,6 @@
       "@services/*": ["src/services/*"],
       "@store/*": ["src/store/*"],
       "@navigation/*": ["src/navigation/*"],
-      "@model/*": ["src/model/*"],
       "@hooks/*": ["src/hooks/*"],
       "@utils/*": ["src/utils/*"]
     } /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */,
