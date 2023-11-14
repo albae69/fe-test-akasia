@@ -6,6 +6,7 @@ import {RootStackParamList} from '@navigation/types';
 import {formatNumber} from '@utils';
 import {Button} from '@components';
 import useBoundStore from '@store';
+import dayjs from 'dayjs';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Detail'>;
 
@@ -52,6 +53,11 @@ const Detail = ({navigation, route}: Props) => {
         description={`${planet.rotation_period} hours`}
       />
       <Item title="Surface Water" description={`${planet.surface_water}%`} />
+      <Item
+        title="Created At"
+        description={dayjs(planet.created).format('DD/MM/YYYY HH:mm:ss')}
+      />
+
       <View className="h-10" />
       {wishlist.filter(item => item.name == planet.name).length > 0 ? (
         <Text className="font-regular text-center text-black underline">
