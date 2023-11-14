@@ -5,7 +5,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {RootStackParamList, HomeTabParamList} from './types';
-import {Home, Splash, Wishlist} from '@screens';
+import {Detail, Home, Splash, Wishlist} from '@screens';
 
 const Stack = createStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator<HomeTabParamList>();
@@ -45,6 +45,7 @@ const Navigation = () => {
         }}>
         <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="HomeTab" component={HomeTab} />
+        <Stack.Screen name="Detail" component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -32,11 +32,13 @@ const useHome = () => {
     }
   };
 
+  const reload = () => init(1);
+
   useEffect(() => {
     init(page);
   }, [page]);
 
-  return {planets, page, setPage, status};
+  return {planets, page, setPage, status, reload};
 };
 
 export default useHome;

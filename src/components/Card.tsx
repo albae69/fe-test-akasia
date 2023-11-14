@@ -4,11 +4,15 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import {Planet} from 'types';
 import {formatNumber} from '@utils';
 
-interface Card extends Planet {}
+interface Card extends Planet {
+  onPress: () => void;
+}
 
-const Card = ({name, population, terrain}: Partial<Card>) => {
+const Card = ({name, population, terrain, onPress}: Partial<Card>) => {
   return (
-    <TouchableOpacity className="border shadow-md border-gray-200 rounded-md mb-4 bg-white">
+    <TouchableOpacity
+      className="border shadow-md border-gray-200 rounded-md mb-4 bg-white"
+      onPress={onPress}>
       <View className="p-4">
         <Text className="text-lg font-bold text-black">{name}</Text>
         <Text className="text-xs font-regular text-gray-500">
